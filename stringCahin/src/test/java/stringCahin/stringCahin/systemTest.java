@@ -1,18 +1,27 @@
 package stringCahin.stringCahin;
-import static org.junit.Assert.assertEquals;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
-public class systemTest {
-	@Test
-    public void testRunEndToEnd() {
-        // יוצרים סטאב של D
-	    ChainMain runner = new ChainMain();
-        // יוצרים את C עם הסטאב
-	    String result=runner.run();
-	    assertEquals("HELLO", result);
 
-        // קוראים ל־C — לא לסטאב!
-       
+public class systemTest {
+
+    @Test
+    public void testWholeChain_EmptyPrefix() {
+        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
+        assertEquals("HELLO", a.process(""));
     }
 
+    @Test
+    public void testWholeChain_WithCustomPrefix() {
+        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
+        assertEquals("ABHELLO", a.process("AB"));
+    }
+
+    @Test
+    public void testChainMain_Run_EqualsManual() {
+        String viaMain = new ChainMain().run();
+        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
+        String manual = a.process("");
+        assertEquals(manual, viaMain);
+    }
 }
