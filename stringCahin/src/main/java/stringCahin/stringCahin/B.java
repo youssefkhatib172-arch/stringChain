@@ -1,19 +1,14 @@
 package stringCahin.stringCahin;
 
-
-
 public class B {
-	 private C next;
+    private C next;
 
-	public B(C next) {
-	   this.next = next;
-	}
+    public B(C next) {
+       this.next = next;
+    }
 
-	public String process(String prefix) {
-	  
-	   String updated = next.process(prefix + "E");
-	   
-	   return prefix + "E";
-
-	   
-	}}
+    public String process(String prefix) {
+       String updated = next.process(prefix + "E");
+       return updated;   // מחזיר את התוצאה של ההמשך בשרשרת
+    }
+}

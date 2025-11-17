@@ -1,18 +1,17 @@
 package stringCahin.stringCahin;
+
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+// System Test – כל המערכת יחד
 public class systemTest {
-	@Test
+
+    @Test
     public void testRunEndToEnd() {
-        // יוצרים סטאב של D
-	    ChainMain runner = new ChainMain();
-        // יוצרים את C עם הסטאב
-	    String result=runner.run();
-	    assertEquals("HELLO", result);
+        ChainMain runner = new ChainMain();
 
-        // קוראים ל־C — לא לסטאב!
-       
+        String result = runner.run();
+
+        assertEquals("HELLO", result);
     }
-
 }
