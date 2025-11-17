@@ -1,19 +1,15 @@
 package stringCahin.stringCahin;
-import org.junit.Test;
+
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class CUnitTest {
+
+    // בדיקת יחידה 2 – C עם Stub ל-D
     @Test
-    public void testCWithStub() {
-        // יוצרים סטאב של D
-        DStub stub = new DStub();
-        // יוצרים את C עם הסטאב
-        C c = new C(stub);
-
-        // קוראים ל־C — לא לסטאב!
-        String result = c.process("HE");
-
-        // מאמתים את הפלט
-        assertEquals("HELX", result);
+    public void testC_WithDStub_AddsLThenX() {
+        C c = new C(new DStub());
+        String out = c.process("HE");
+        assertEquals("HELX", out);  // HE + L (C) + X (Stub)
     }
 }

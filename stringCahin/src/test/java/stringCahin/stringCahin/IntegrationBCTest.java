@@ -13,3 +13,4 @@ public class IntegrationBCTest {
         assertEquals("HEL", out);     // +E (B) +L (C), ואז ה-Stub עוצר
     }
 }
+

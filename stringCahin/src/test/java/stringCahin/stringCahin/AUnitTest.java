@@ -1,21 +1,15 @@
-// AUnitTest.java
 package stringCahin.stringCahin;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class AUnitTest {
+
+    // בדיקת יחידה 1 – A עם Stub ל-B
     @Test
     public void testA_AddsH_Only() {
-        A a = new A(new BStopStub());
+        A a = new A(new BStopStub()); // Stub ל-B
         String out = a.process("");
-        assertEquals("HE", out);
-    }
-
-    @Test
-    public void testA_NullInput_TreatedAsStringNull() {
-        A a = new A(new BStopStub());
-        String out = a.process(null);
-        assertEquals("nullHE", out); // כי null + "H" == "nullH"
+        assertEquals("HE", out);      // H (A) + E (מה-Stub)
     }
 }

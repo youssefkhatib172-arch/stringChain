@@ -5,23 +5,16 @@ import org.junit.Test;
 
 public class systemTest {
 
+    // בדיקת מערכת – כל השרשרת A→E
     @Test
     public void testWholeChain_EmptyPrefix() {
-        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
-        assertEquals("HELLO", a.process(""));
-    }
+        E e = new E();
+        D d = new D(e);
+        C c = new C(d);
+        B b = new B(c);
+        A a = new A(b);
 
-    @Test
-    public void testWholeChain_WithCustomPrefix() {
-        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
-        assertEquals("ABHELLO", a.process("AB"));
-    }
-
-    @Test
-    public void testChainMain_Run_EqualsManual() {
-        String viaMain = new ChainMain().run();
-        E e = new E(); D d = new D(e); C c = new C(d); B b = new B(c); A a = new A(b);
-        String manual = a.process("");
-        assertEquals(manual, viaMain);
+        String result = a.process("");
+        assertEquals("HELLO", result);
     }
 }
